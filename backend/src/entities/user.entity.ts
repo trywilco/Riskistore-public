@@ -17,9 +17,6 @@ export class User {
   @Column()
   password: string;
 
-  @Column({ nullable: true, type: 'timestamp' })
-  birthday: Date | null;
-
   @CreateDateColumn()
   createdAt: Date;
 

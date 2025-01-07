@@ -78,7 +78,6 @@ export class AuthController {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      birthday: user.birthday,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
     };

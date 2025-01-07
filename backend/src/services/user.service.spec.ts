@@ -52,7 +52,6 @@ describe('UserService', () => {
         lastName: 'Doe',
         email: 'john@example.com',
         password: 'hashedpassword',
-        birthday: null,
         createdAt: mockDate,
         updatedAt: mockDate,
       });

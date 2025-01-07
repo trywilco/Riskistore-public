@@ -59,14 +59,4 @@ export class UserService {
     return this.userRepository.findOne({ where: { email } });
   }
 
-  async checkBirthday(userId: string): Promise<boolean> {
-    const user = await this.findOne(userId);
-    if (!user || !user.birthday) return false;
-
-    const today = new Date();
-    const birthday = new Date(user.birthday);
-    
-    return today.getMonth() === birthday.getMonth() && 
-           today.getDate() === birthday.getDate();
-  }
 }

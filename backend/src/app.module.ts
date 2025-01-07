@@ -8,7 +8,6 @@ import { AuthController } from './controllers/auth.controller';
 import { UserService } from './services/user.service';
 import { User } from './entities/user.entity';
 import { JwtStrategy } from './auth/jwt.strategy';
-import { BirthdayConsumer } from './consumers/birthday.consumer';
 import { Product } from './entities/product.entity';
 import { ProductController } from './controllers/product.controller';
 import { ProductService } from './services/product.service';
@@ -37,6 +36,6 @@ import { ProductService } from './services/product.service';
     }),
   ],
   controllers: [UserController, ProductController, AuthController],
-  providers: [UserService, JwtStrategy, BirthdayConsumer, ProductService],
+  providers: [UserService, JwtStrategy, ProductService],
 })
 export class AppModule {}
