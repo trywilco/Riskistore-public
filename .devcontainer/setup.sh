@@ -12,6 +12,7 @@ echo "export CODESPACE_BACKEND_URL=\"${CODESPACE_BACKEND_URL}\"" >> ~/.bashrc
 echo "export CODESPACE_WDS_SOCKET_PORT=443" >> ~/.bashrc
 
 nohup bash -c "cd /wilco-agent && node agent.js &" >> /tmp/agent.log 2>&1
+echo "(&>/dev/null .devcontainer/open_port.sh &)" >> ~/.bashrc
 
 # Check if docker is installed
 if command -v docker &> /dev/null
