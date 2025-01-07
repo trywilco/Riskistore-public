@@ -10,9 +10,11 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import UserProfile from './pages/UserProfile';
+import ShoppingCart from './pages/ShoppingCart';
 import { UserProvider } from './contexts/UserContext';
 import { ProductProvider } from './contexts/ProductContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { CartProvider } from './contexts/CartContext';
 import { useAuth } from './contexts/AuthContext';
 
 const theme = createTheme({
@@ -51,22 +53,25 @@ const App: React.FC = () => {
       <AuthProvider>
         <UserProvider>
           <ProductProvider>
-            <Router>
-              <Navbar />
-              <Routes>
-                {/* Public routes */}
+            <CartProvider>
+              <Router>
+                <Navbar />
+                <Routes>
+                  {/* Public routes */}
                 <Route path="/" element={<Catalog />} />
-                <Route path="/item/:id" element={<ItemDetails />} />
+                  <Route path="/item/:id" element={<ItemDetails />} />
                 <Route path="/login" element={<Login />} />
-                
-                {/* Protected routes */}
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/users" element={<UserList />} />
-                  <Route path="/users/:id" element={<UserDetails />} />
-                  <Route path="/profile" element={<UserProfile />} />
-                </Route>
-              </Routes>
-            </Router>
+                  
+                  {/* Protected routes */}
+                  <Route element={<ProtectedRoute />}>
+                    <Route path="/users" element={<UserList />} />
+                    <Route path="/users/:id" element={<UserDetails />} />
+                    <Route path="/profile" element={<UserProfile />} />
+                    <Route path="/cart" element={<ShoppingCart />} />
+                  </Route>
+                </Routes>
+              </Router>
+            </CartProvider>
           </ProductProvider>
         </UserProvider>
       </AuthProvider>

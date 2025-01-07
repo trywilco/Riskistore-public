@@ -5,12 +5,17 @@ import {
   Toolbar,
   Typography,
   Button,
-  Box
+  Box,
+  Badge,
+  IconButton
 } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useAuth } from '../contexts/AuthContext';
+import { useCart } from '../contexts/CartContext';
 
 export default function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
+  const { cart } = useCart();
   const navigate = useNavigate();
 
   const handleAuthAction = () => {
@@ -30,6 +35,16 @@ export default function Navbar() {
           </RouterLink>
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          {isAuthenticated && (
+            <IconButton 
+              color="inherit" 
+              onClick={() => navigate('/cart')}
+            >
+              <Badge badgeContent={cart.length} color="secondary">
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
+          )}
           <Button 
             color="inherit" 
             onClick={handleAuthAction}
