@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 import { User } from '../entities/user.entity';
 import { Product } from '../entities/product.entity';
 import { seedProducts } from './product-seed';
+import { seedUsers } from './user-seed';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ async function runSeed() {
   try {
     await dataSource.initialize();
     await seedProducts(dataSource);
+    await seedUsers(dataSource);
     await dataSource.destroy();
   } catch (error) {
     console.error('Error during seeding:', error);
