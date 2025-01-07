@@ -11,11 +11,4 @@ curl -X POST http://localhost:3000/api/users \
     "lastName": "User",
     "email": "admin@riskistore.com",
     "password": "AdminPass123!",
-    "addresses": [{
-      "street": "123 Admin St",
-      "city": "Admin City",
-      "state": "Admin State",
-      "country": "Admin Country",
-      "zipCode": "12345"
-    }]
   }'

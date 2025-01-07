@@ -4,7 +4,6 @@ import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../src/entities/user.entity';
-import { Address } from '../src/entities/address.entity';
 
 describe('UserController (e2e)', () => {
   let app: INestApplication;
@@ -20,7 +19,7 @@ describe('UserController (e2e)', () => {
           username: 'postgres',
           password: 'postgres',
           database: 'riskistore_test',
-          entities: [User, Address],
+          entities: [User],
           synchronize: true,
         }),
       ],
@@ -38,15 +37,6 @@ describe('UserController (e2e)', () => {
         lastName: 'Doe',
         email: 'john@example.com',
         password: 'password123',
-        addresses: [
-          {
-            street: '123 Main St',
-            city: 'New York',
-            state: 'NY',
-            country: 'USA',
-            zipCode: '10001',
-          },
-        ],
       })
       .expect(201)
       .expect((res) => {
@@ -54,7 +44,6 @@ describe('UserController (e2e)', () => {
         expect(res.body.firstName).toBe('John');
         expect(res.body.lastName).toBe('Doe');
         expect(res.body.email).toBe('john@example.com');
-        expect(res.body.addresses).toHaveLength(1);
       });
   });
 

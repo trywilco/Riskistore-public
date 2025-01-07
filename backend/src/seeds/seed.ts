@@ -2,7 +2,6 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
 import { User } from '../entities/user.entity';
-import { Address } from '../entities/address.entity';
 import { Product } from '../entities/product.entity';
 import { seedProducts } from './product-seed';
 
@@ -15,7 +14,7 @@ const dataSource = new DataSource({
   username: process.env.DB_USERNAME || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
   database: process.env.DB_NAME || 'riskistore',
-  entities: [User, Address, Product],
+  entities: [User, Product],
   synchronize: false,
   logging: true,
 });

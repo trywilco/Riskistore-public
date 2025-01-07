@@ -42,7 +42,6 @@ describe('UserService', () => {
         lastName: 'Doe',
         email: 'john@example.com',
         password: 'password123',
-        addresses: [],
       };
 
       const mockDate = new Date();
@@ -53,7 +52,6 @@ describe('UserService', () => {
         lastName: 'Doe',
         email: 'john@example.com',
         password: 'hashedpassword',
-        addresses: [],
         birthday: null,
         createdAt: mockDate,
         updatedAt: mockDate,

@@ -22,13 +22,12 @@ export class UserService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.userRepository.find({ relations: ['addresses'] });
+    return this.userRepository.find();
   }
 
   async findOne(id: string): Promise<User> {
     const user = await this.userRepository.findOne({ 
       where: { id },
-      relations: ['addresses'],
     });
     
     if (!user) {
