@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { Product } from '../types/Product'; // Adjust import based on your existing types
 import { useAuth } from './AuthContext';
+import { Product } from './ProductContext';
 
 interface CartContextType {
   cart: Product[];

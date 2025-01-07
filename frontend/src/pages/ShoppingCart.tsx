@@ -76,15 +76,15 @@ const ShoppingCart: React.FC = () => {
                 Total: ${calculateTotal()}
               </Typography>
               <Button 
-                variant="contained" 
-                color="primary"
+                color="secondary" 
+                variant="outlined"
                 onClick={clearCart}
               >
                 Clear Cart
               </Button>
               <Button 
                 variant="contained" 
-                color="success"
+                color="primary"
               >
                 Checkout
               </Button>

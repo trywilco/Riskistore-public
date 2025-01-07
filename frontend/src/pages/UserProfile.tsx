@@ -15,11 +15,6 @@ export default function UserProfile() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
-
   if (!user) {
     return (
       <Container maxWidth="sm" sx={{ mt: 4, textAlign: 'center' }}>

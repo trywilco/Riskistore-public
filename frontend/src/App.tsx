@@ -12,7 +12,6 @@ import ShoppingCart from './pages/ShoppingCart';
 import { ProductProvider } from './contexts/ProductContext';
 import { AuthProvider } from './contexts/AuthContext';
 import { CartProvider } from './contexts/CartContext';
-import { useAuth } from './contexts/AuthContext';
 
 const theme = createTheme({
   palette: {
@@ -29,18 +28,6 @@ const theme = createTheme({
       primary: '#000000'
     }
   },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#55BBA7',
-          '&:hover': {
-            backgroundColor: '#4ca796'
-          }
-        }
-      }
-    }
-  }
 });
 
 const App: React.FC = () => {
