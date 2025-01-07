@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const API_BASE_URL = 'http://localhost:3000';
+const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
-export const api = axios.create({
-  baseURL: API_BASE_URL,
+const api = axios.create({
+  baseURL: BASE_URL,
 });
 
 // Function to set authorization token for all requests
@@ -14,3 +14,5 @@ export const setAuthToken = (token: string | null) => {
     delete api.defaults.headers.common['Authorization'];
   }
 };
+
+export { api, BASE_URL as API_BASE_URL };
